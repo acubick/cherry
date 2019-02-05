@@ -1,0 +1,738 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea, select
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+	background-color: #e1e1e6
+button:active,
+button:focus
+	outline: none
+	padding: 0
+button::-moz-focus-inner
+	border: 0
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+.text-center
+	text-align: center
+b, strong
+	font-weight: bold
+.class-title
+	color: $fc-title-gray
+	font-family: ArialBoldMT, sans-serif
+	&:first-letter
+			color: $palevioletred
+.class-bottom-line
+	content: ''
+	position: absolute
+	height: 2px
+	width: 85%
+	background-color: darken(#292f35, 5%)
+	left: 0
+	bottom: -5px
+	border-bottom: 1px solid #40474f
+.class-box-shadow
+	box-shadow: 0 2px 5px rgba(0,0,0,0.25), 0 2px 5px rgba(0,0,0,0.22)
+	
+.top-line
+	background-image: linear-gradient(bottom, #263030 0%,#333f45 100%)
+	padding: 18px 0
+.logo
+	font-family: ArialBoldMT, sans-serif
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05)
+	padding-left: 10px
+	&__name
+		margin: 0
+		line-height: 30px
+		a
+			@extend .class-title
+			font-size: 30px
+			text-transform: uppercase
+			display: inline-block
+			padding-bottom: 10px
+			text-decoration: none
+	&__text
+		color: $fc-top-gray
+		font-size: 12px
+		line-height: 12px
+		margin-bottom: 0
+		margin-top: -6px
+.search
+	display: flex
+	justify-content: flex-end
+	height: 34px
+	margin-right: 15px
+	&__input
+		width: 198px
+		height: 100%
+		border: 1px solid #875f66
+		border-radius: 5px
+		background-color: #24272d
+		padding: 12px 10px
+		color: #5b636e
+		font-family: ArialMT, sans-serif
+		font-size: 14px
+		font-weight: 400
+		line-height: 14px
+		margin-right:  10px
+		&:focus
+			border: 1px solid darken(#875f66, 10%)
+			background-color: darken(#24272d, 3%)
+			color: lighten(#5b636e, 10%)
+	&__button
+		display: flex
+		flex: 0 0 auto
+		justify-content: center
+		width: 38px
+		height: 100%
+		background-color: $palevioletred
+		border: none
+		border-radius: 5px
+		color: $white
+		font-size: 22px
+		text-align: center
+		cursor: pointer
+		&:hover
+			background-color: lighten($palevioletred, 5%)
+		&:active
+			background-color: darken($palevioletred, 5%)
+//			Mobile menu   //
+.mobile-menu-button
+	color: #fff
+	text-align: center
+	cursor: pointer
+	line-height: 20px
+	font-size: 20px
+	text-transform: uppercase
+	font-weight: bold
+	padding: 10px
+	display: none
+	white-space: nowrap
+	background-color: $palevioletred
+	margin-bottom: 10px
+	transition: all .3s ease
+	&:hover
+		color: darken($white, 10%)
+		background-color: darken($palevioletred, 5%)
+.mobile-menu
+	display: none
+	//border-top: darken($bg-top-dark-gray, 10%) 1px solid
+	position: absolute
+	z-index: 2
+	width: 100%
+	top: 42px
+	padding: 0 9px
+	left: 0
+	.main-menu
+		display: block
+	ul
+		padding-left: 0
+		li
+			display: block
+			text-align: center
+			&:last-child
+				a
+					border-bottom: none
+			a
+				padding: 0
+				color: $fc-title-gray
+				line-height: 45px
+				background-color: darken($bg-top-dark-gray, 5%)
+				display: block
+				border-bottom: 1px dotted $fc-title-gray
+				transition: all .3s ease
+				&:hover
+					color: $palevioletred
+					text-decoration: none
+					background-color: darken($bg-top-dark-gray, 7%)
+				
+//////////////////////////////////////////////////
+
+.slider
+	//overflow: hidden
+	.slide
+		padding: 39px
+		position: relative
+		.slide-bg
+			position: absolute
+			left: 0
+			top: 0
+			right: 0
+			bottom: 0
+			background-size: cover
+			z-index: -1
+		.slide__title-top
+			@extend .class-title
+			font-size: 30px
+			line-height: 30px
+			margin-bottom: 0
+			position: relative
+			left: 150px
+			opacity: 0
+			transition: all 1s ease
+		.slide__text-top
+			color: $fc-title-dark
+			font:
+				family: ArialBoldMT, sans-serif
+				size: 18px
+			display: inline-block
+			line-height: 19px
+			vertical-align: top
+			position: relative
+			left: 150px
+			opacity: 0
+			transition: all 1s ease
+		.slide__title
+			color: $fc-title-gray
+		  font-family: ArialBoldMT, sans-serif
+			font-size: 18px
+			line-height: 14px
+			margin-bottom: 0
+			position: relative
+			left: 200px
+			opacity: 0
+			transition: all .8s ease
+		.slide__text
+			color: $fc-slider-gray
+			font-family: ArialMT, sans-serif
+			font-size: 14px
+		  line-height: 18px
+			position: relative
+			left: 200px
+			opacity: 0
+			transition: all .8s ease
+			transform: scale(0.7)
+.owl-item
+	&.active
+		.slide__title-top,
+		.slide__text-top,
+		.slide__title,
+		.slide__text
+			opacity: 1
+			left: 0
+		.slide__text
+			transform: scale(1)
+.owl-carousel
+	.owl-nav
+		.owl-prev i, .owl-next i
+			display: flex
+			align-items: center
+			justify-content: space-around
+			color: darken($white, 30%)
+			font-size: 40px
+			background-color: rgba(0, 0, 0, .1)
+			height: 255px
+			width: 35px
+			margin: auto
+		.owl-prev, .owl-next
+			position: absolute
+			top: 0
+		.owl-prev
+			left: 0
+		.owl-next
+			right: 0
+	.owl-dots
+		position: absolute
+		display: flex
+		justify-content: center
+		width: 100%
+		bottom: 10px
+		transform: translate(-9px)
+		.owl-dot
+			height: 10px
+			width: 10px
+			background-color: darken($white, 50%)
+			margin-left: 15px
+			border-radius: 50%
+			transition:	background-color .25s ease
+			&:hover
+				background-color: darken($white, 10%)
+			&.active
+				background-color: darken($white, 20%)
+.menu
+	background-color: $red
+	.menu-items
+		display: flex
+		justify-content: flex-end
+		list-style: none
+		margin-bottom: 0
+		padding: 0
+
+	//.menu-item
+	.menu-link
+		display: block
+		padding: 12px 33px
+		color: $white
+		font-family: ArialBoldMT, sans-serif
+		font-size: 16px
+		font-weight: 400
+		line-height: 14px
+		transition: all .5s ease
+		text-decoration: none
+		&:hover
+			background-color: lighten($red, 5%)
+			color: darken($white, 10%)
+.breadcrumbs
+	background-color: #f3f3f3
+	.breadcrumbs-list
+		margin: 0 24px
+		padding: 0
+		list-style: none
+		display: flex
+		justify-content: flex-start
+		.breadcrumb-item
+			&::after
+				content: '/'
+				margin: 0 3px
+			&:last-child::after
+				content: none
+		.breadcrumb-link
+			margin-right: 5px
+			color: $red
+			font-family: ArialMT, sans-serif
+			font-size: 11px
+			line-height: 24px
+			text-decoration: none
+			border-bottom: 1px solid $red
+			&.active
+				color: #6b6f74
+				border-bottom: none
+
+.content
+	background-color: $white
+	padding: 20px 22px 50px
+	width: 100%
+	.aside
+		form
+			box-sizing: border-box
+			@extend .class-box-shadow
+			background-color: $light-grey
+			padding: 19px 13px 33px
+			border: 1px solid $bc-table-row
+			legend
+				color: $fc-title-dark
+				font:
+					family: ArialBoldMT, sans-serif
+					size: 18px
+				margin-bottom: 20px
+			input
+				background-color: $bg-input
+				width: 100%
+				border: 1px solid #fffcfc
+				padding: 8px 10px
+				margin-bottom: 16px
+				color: $fc-light-gray
+				font:
+					family: ArialMT, sans-serif
+					size: 14px
+				line-height: 18px
+				border-radius: 5px
+				&:focus
+					background-color: lighten($bg-input, 10%)
+					box-shadow: inset 0 2px 0 #fd7e14
+			select
+				background-color: #e3e4e5
+				width: 100%
+				padding: 10px 10px
+				color: #9097A4
+				font:
+					family: ArialMT, sans-serif
+					size: 16px
+				line-height: 18px
+				border: 1px solid #a2a2a2
+				border-radius: 5px
+				margin-bottom: 16px
+				appearance: none
+				&:focus
+					background-color: lighten($bg-input, 8%)
+				&:visited
+					background-color: #fd7e14
+				option
+					color: darken(#9097A4, 10%)
+					font-size: inherit
+					background-color: #f1f4ef
+			.select-style
+				display:  block
+				position: relative
+				&::after
+					content: "\e810"
+					font-family: iconfonts
+					font-size: 20px
+					position: absolute
+					top: 3px
+					right: 10px
+					z-index: 2
+					color: #989da1
+			.form-button
+				position: relative
+				color: $white
+				width: 90%
+				text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75)
+				font:
+					family: ArialMT, sans-serif
+					size: 16px
+				padding: 7px 15px
+				border: 5px solid #f3f3f3
+				box-shadow: 0 5px 5px rgba(0, 0, 0, 0.19)
+				background-image: linear-gradient(to top, $red 0%, #b0252e 100%)
+				cursor: pointer
+			.spinner
+				display: none
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				margin: auto
+				.icon-spin5
+					color: $white
+					font-size: 24px
+		.article
+			margin-top: 28px
+			.article-title
+				color: $fc-title-dark
+				font:
+					family: ArialBoldMT, sans-seri
+					size: 18px
+				line-height: 20px
+			.article-text
+				color: $fc-gray
+				font:
+					family: ArialMT, sans-serif
+					size: 12px
+				line-height: 20px
+				margin-bottom: 0
+			.article-link
+				color: $red
+				font:
+					family: ArialMT, sans-serif
+					size: 12px
+				line-height: 20px
+				text-decoration: underline
+	.main-content
+		.article-top
+			.article-top__title
+				color: $fc-title-gray
+				font:
+					family: ArialBoldMT, sans-serif
+					size: 24px
+				line-height: 14px
+				margin-bottom: 20px
+				&:first-letter
+					color: $palevioletred
+			.article-top__text
+				color: $fc-gray
+				font:
+					family: ArialMT, sans-serif
+					size: 14px
+				line-height: 20px
+				letter-spacing: 0.9px
+				a
+					color: $red
+					text-decoration: underline
+					cursor: pointer
+		.images
+			display: inline-block
+			.images-wrapper
+				float: left
+				margin-right: 18px
+				margin-top: 15px
+				.image-title
+					margin-bottom: 6px
+					color: $fc-title-dark
+					font:
+						family: ArialBoldMT, sans-serif
+						size: 18px
+					line-height: 14px
+				.image-item
+					box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3)
+					border: 1px solid $white
+					img
+						width: 215px
+						height: auto
+		.lists
+			margin-top: 18px
+			.lists-title
+				@extend .class-title
+				font-size: 24px
+				line-height: 14px
+			.list
+				.list-title
+					color: $fc-gray
+					font:
+						family: ArialMT, sans-serif
+						size: 14px
+					line-height: 24px
+					margin-bottom: 0
+				.list-item
+					color: $fc-gray
+					font:
+						family: ArialMT, sans-serif
+						size: 14px
+					line-height: 22px
+					padding-left: 20px
+				.list-item--unstyled
+					padding-left: 0
+					list-style: none
+				.list-item__insert
+					padding-left: 20px
+					list-style-type: disc
+		.table-wrapper
+			.table-title
+				@extend .class-title
+				font-size: 24px
+				line-height: 27px
+				margin-bottom: 20px
+			.table-border
+				border-radius: 6px
+				overflow: hidden
+			.table
+				background-color: $fc-title-dark
+				color: $fc-table-sec-gray
+				margin: 0
+				border-collapse: collapse
+				th, td
+					display: table-cell
+					padding: 5px 15px
+					border-right: 1px solid $bc-table-row
+					vertical-align: middle
+					&:last-child
+						border-right: none
+				tr
+					display: table-row
+					border-bottom: 1px solid $bc-table-row
+					&:last-child
+						border-bottom: none
+				th
+					text-align: center
+				a
+					color: $fc-indianred
+					font:
+						family: ArialMT, sans-serif
+						size: 12px
+					line-height: 24px
+					text-decoration: underline
+					transition: all .5s ease
+					&:hover
+						text-decoration: none
+						color: lighten($fc-indianred, 10%)
+				.thead
+					th
+						padding: 8px 15px
+					text-align: center
+					color: #fefeff
+					background-color: #9c4757
+					font:
+						family: ArialBoldMT, sans-serif
+						size: 12px
+					line-height: 20px
+.footer
+	background-color: #292f35
+	width: 100%
+	border-top: 7px solid #ae4b5d
+	padding: 40px 0 25px
+	color: $fc-footer-gray
+	font:
+		family: ArialMT, sans-serif
+		size: 12px
+	h4
+		text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35)
+		margin-bottom: 15px
+		color: $fc-title-gray
+		font:
+			family: ArialBoldMT, sans-serif
+			size: 18px
+	ul
+		list-style-type: none
+	.panel-hours
+		margin-bottom: 12px
+		h4
+			position: relative
+			&::after
+				@extend .class-bottom-line
+			@extend .class-title
+			font:
+				family: ArialMT, sans-serif
+				size: 18px
+			span
+				text-transform: uppercase
+		.panel-hours__lists
+			padding-left: 27px
+			li
+				position: relative
+				padding: 2px 0
+				&::before
+					content: url("../img/icon_clock.png")
+					position: absolute
+					margin-left: -25px
+	.panel-phones
+		margin-left: 25px
+		h4
+			position: relative
+			&::after
+				@extend .class-bottom-line
+		ul
+			padding-left: 20px
+			margin-bottom: 8px
+			li
+				position: relative
+				&::before
+					position: absolute
+					content: ''
+					height: 5px
+					width: 5px
+					background-color: $palevioletred
+					left: -16px
+					top: 7px
+					border-radius: 50%
+				a[href*="tel"]
+					color: #85898f
+					font-family: ArialMT, sans-serif
+					font-size: 12px
+					text-decoration: none
+					transition: all .5s ease
+					&:hover
+						color: lighten($palevioletred, 10%)
+		span
+			display: inline-block
+			@extend .class-title
+			text-transform: uppercase
+		p
+			a[href*="tel"]
+				font:
+					family: ArialBoldMT
+					size: 14px
+				color: $fc-title-gray
+				text-decoration: none
+				transition: all .5s ease
+				&:hover
+					color: lighten($fc-title-gray, 10%)
+	.panel-location
+		h4
+			position: relative
+			&::after
+				@extend .class-bottom-line
+		ul
+			padding-left: 5px
+			li
+				padding: 1px 0
+		a[href*="mailto"]
+			color: $fc-indianred
+			text-decoration: underline
+			transition: all .5s ease
+			&:hover
+				text-decoration: none
+				color: lighten($fc-indianred, 15%)
+				
+.social
+	background-color: $palevioletred
+	color: white
+	font-size: 20px
+	height: 24px
+	width: 26px
+	position: relative
+	bottom: 0
+	line-height: 26px
+	border-radius: 3px
+	display: inline-block
+	overflow: hidden
+	transition: all .5s ease
+	float: left
+	margin-left: 3px
+	&:hover
+		background-color: lighten($palevioletred, 10%)
+
+.icon-vkontakte-rect
+		color: $palevioletred
+		display: inline-block
+		background-color: white
+		width: 25px
+		height: 24px
+		line-height: 24px
+		font-size: 27px
+		position: relative
+		border: 3px solid $palevioletred
+		border-radius: 3px
+		box-sizing: border-box
+		&::before
+			position: absolute
+			top: -4px
+			left: -9px
+		&:hover
+			color: lighten($palevioletred, 15%)
+			background-color: white
+.topLink
+	position: fixed
+	bottom: 10px
+	right: 10px
+	display: none
+	text-transform: uppercase
+	color: $white
+	text-align: center
+	line-height: 40px
+	font-size: 16px
+	background-color: $palevioletred
+	opacity: .8
+	height: 40px
+	width: 40px
+	border-radius: 10em
+	outline: none
+	box-shadow: 0 0 10px rgba(0,0,0,0.8)
+	&:hover
+		color: darken($white, 10%)
+		text-decoration: none
+		background-color: lighten($palevioletred, 5%)
+		opacity: 1
+///// checkValid form  ///////
+.info
+	text-align: left
+	padding: 5px
+	font-size: 12px
+	color: #fff
+	position: absolute
+	display: block
+	border-radius: 2px
+	box-shadow: 1px 1px 1px #a9a9a9
+.error
+	background: #f60000
+	border: 1px solid #d50000
+
+.correct
+	background: #56d800
+	border: 1px solid #008000
+
+.wrong
+	font-weight: bold
+	color: #e90000
+
+.normal
+	font-weight: normal
+	color: #222
+
+
+@import "media" // Always at the end
+

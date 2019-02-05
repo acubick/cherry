@@ -1,0 +1,198 @@
+//colors
+$black: #000
+
+//urls
+$url_0: url(owl.video.play.png)
+
+//@extend-elements
+//original selectors
+//.owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next, .owl-carousel button.owl-dot
+.extend_1
+	background: none
+	color: inherit
+	border: none
+	padding: 0 !important
+	font: inherit
+
+
+
+.owl-carousel
+	display: none
+	width: 100%
+	position: relative
+	z-index: 1
+	.owl-stage
+		position: relative
+		touch-action: manipulation
+		&:after
+			content: "."
+			display: block
+			clear: both
+			visibility: hidden
+			line-height: 0
+			height: 0
+	
+	
+	.owl-stage-outer
+		position: relative
+		overflow: hidden
+	
+	.owl-wrapper
+	
+	.owl-item
+		img
+			display: block
+			width: 100%
+			&.owl-lazy
+				//If you use compass, instead of the line below you could use + transform-style($style)
+				transform-style: preserve-3d
+		
+		
+		.owl-lazy
+			opacity: 0
+			//If you use compass, instead of the line below you could use + transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: opacity 400ms ease
+			&:not([src])
+				max-height: 0
+		
+		
+		.owl-lazy[src^=""]
+			max-height: 0
+	
+	
+	.owl-nav
+		&.disabled
+			display: none
+		
+		.owl-prev
+			cursor: pointer
+			//If you use compass, instead of the line below you could use + user-select($select)
+			user-select: none
+		
+		.owl-next
+			cursor: pointer
+			//If you use compass, instead of the line below you could use + user-select($select)
+			user-select: none
+		
+		button
+			&.owl-prev
+				@extend %extend_1
+			
+			&.owl-next
+				@extend %extend_1
+	
+	
+	
+	.owl-dot
+		cursor: pointer
+		//If you use compass, instead of the line below you could use + user-select($select)
+		user-select: none
+	
+	&.owl-loaded
+		display: block
+	
+	&.owl-loading
+		opacity: 0
+		display: block
+	
+	&.owl-hidden
+		opacity: 0
+	
+	&.owl-grab
+		cursor: move
+		cursor: grab
+	
+	&.owl-rtl
+		direction: rtl
+		.owl-item
+			float: right
+	
+	
+	.animated
+		animation-duration: 1000ms
+		animation-fill-mode: both
+	
+	.owl-animated-in
+		z-index: 0
+	
+	.owl-animated-out
+		z-index: 1
+	
+	.fadeOut
+		animation-name: fadeOut
+	
+	.owl-video-wrapper
+		position: relative
+		height: 100%
+		background: $black
+	
+	.owl-video-play-icon
+		position: absolute
+		height: 80px
+		width: 80px
+		left: 50%
+		top: 50%
+		margin-left: -40px
+		margin-top: -40px
+		background: $url_0 no-repeat
+		cursor: pointer
+		z-index: 1
+		//If you use compass, instead of the line below you could use + transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: transform 100ms ease
+		&:hover
+			//If you use compass, instead of the line below you could use + transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: scale(1.3, 1.3)
+	
+	
+	.owl-video-playing
+		.owl-video-tn
+			display: none
+		
+		.owl-video-play-icon
+			display: none
+	
+	
+	.owl-video-tn
+		opacity: 0
+		height: 100%
+		background-position: center center
+		background-repeat: no-repeat
+		background-size: contain
+		//If you use compass, instead of the line below you could use + transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: opacity 400ms ease
+	
+	.owl-video-frame
+		position: relative
+		z-index: 1
+		height: 100%
+		width: 100%
+	
+	.owl-dots.disabled
+		display: none
+	
+	button.owl-dot
+		@extend %extend_1
+	
+	&.owl-refresh .owl-item
+		visibility: hidden
+	
+	&.owl-drag .owl-item
+		touch-action: pan-y
+		//If you use compass, instead of the line below you could use + user-select($select)
+		user-select: none
+
+
+@keyframes fadeOut
+	0%
+		opacity: 1
+	
+	100%
+		opacity: 0
+
+
+.owl-height
+	//If you use compass, instead of the line below you could use + transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: height 500ms ease-in-out
+
+.no-js .owl-carousel
+	display: block

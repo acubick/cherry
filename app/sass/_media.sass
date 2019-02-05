@@ -1,0 +1,116 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
++media-breakpoint-down(lg)
+	.owl-carousel
+		.owl-nav
+			.owl-prev i, .owl-next i
+				height: 280px
+
+// ≥992px
++media-breakpoint-down(md)
+	.owl-carousel
+		.owl-nav
+			.owl-prev i, .owl-next i
+				height: 328px
+	.menu
+	  .menu-link
+		  padding: 12px 20px
+	.content
+		.aside
+			form
+				padding: 19px 8% 33px
+				margin: 0 10%
+				.form-button
+					display: block
+					margin: 0 auto
+					width: 50%
+			.article
+				margin-bottom: 15px
+	.images
+		display: flex
+		justify-content: center
+		.images-wrapper
+			float: none
+
+// ≥768px
++media-breakpoint-down(sm)
+	.top-line
+		padding-top: 0
+		//.search
+		//	margin-right: 0
+	.owl-item
+			.slide__text
+				transform: unset !important
+	.owl-nav
+		display: none
+	.menu
+		display: none
+	.mobile-menu-button
+		display: block
+	.content
+		.aside
+			form
+				margin: 0
+	
+		.article
+			margin-bottom: 15px
+		.main-content
+			.images
+				.images-wrapper
+					float: none
+					margin-right: 0
+					.image-item
+						text-align: center
+						img
+							width: 100%
+			.list
+				max-width: 250px
+				margin: auto
+			.table-wrapper
+				.table-border
+					border-radius: 0
+					overflow: auto
+					.table
+						white-space: nowrap
+			
+	.footer
+		.panel-location, 	.panel-phones, 	.panel-hours
+			margin-left: 10%
+
+
+// ≥576px
++media-breakpoint-down(xs)
+	.container
+		max-width: 100%
+		padding-right: 0
+		padding-left: 0
+	.search
+		margin-top: 10px
+		margin-left: 10px
+		justify-content: center
+	.content
+		.aside
+			form
+				.form-button
+					display: block
+					margin: 0 auto
+					width: 68%
+					font-size: 14px
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+
+// ≤768px
++media-breakpoint-up(md)
+
+// ≤992px
++media-breakpoint-up(lg)
+
+// ≤1200px
++media-breakpoint-up(xl)

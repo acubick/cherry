@@ -1,0 +1,4 @@
+@import "_mixins/font-face";
+
+@include font-face("ArialMT", "../fonts/ArialMT/ArialMT");
+@include font-face("ArialBoldMT", "../fonts/ArialBoldMT/ArialBoldMT", bold);
